@@ -1,6 +1,6 @@
 import serial
 import keyboard
-from colormap import COLOR_MAP,LED_MAP
+from mapping import COLOR_MAP,LED_MAP
 #Test
 
 #More testing
