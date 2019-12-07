@@ -1,9 +1,19 @@
 import serial
 import keyboard
 from mapping import COLOR_MAP,LED_MAP
-#Test
 
-#More testing
+
+def string():
+	data = arduino.readline()
+	execute(data)
+
+def binary():
+	while arduino.inWaiting():
+			data = arduino.read() #the last bit gets rid of the new-line chars
+			if data:
+				led = data[0] >> 4
+				color = data[0] & 0b00000011
+				print(LED_MAP[led][COLOR_MAP[color]])
 
 def printColors(colorList):
 		for color in colorList:
@@ -19,15 +29,10 @@ def execute(data):
 
 with serial.Serial('COM5', 9600, timeout=.1) as arduino:
 	while True:
-			data = arduino.readline()
-			execute(data)
+		string()
 
-			"""
-			data = arduino.read() #the last bit gets rid of the new-line chars
-			if data:
-					led = data[0] >> 4
-					color = data[0] & 0b00000011
-					print(LED_MAP[led][COLOR_MAP[color]])"""
+		
+		
 
 
 

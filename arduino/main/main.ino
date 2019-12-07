@@ -19,10 +19,16 @@ void loop() {
   if(isButtonPressed()){
     //Serial.println("button was pressed");
     changeColor();
-    
-    //Serial.write(t);
-    //t = t + 1;
-    sendCommand("command", "changeColor", "blue,red,green");
+    string();
     } 
    outputColor();
 }
+
+void binary(){
+  Serial.write(t);
+   t = t + 1;
+   }
+   
+void string(){
+  sendCommand("command", "changeColor", "blue,red,green");
+  }
